@@ -1,4 +1,4 @@
-# SeleniumTask
+# SeleniumPythonAutomation 
 
 Selenium is a portable framework for testing web applications. It is also used as an automation tool.
 The following set of tasks are performed:
