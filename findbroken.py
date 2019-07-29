@@ -1,26 +1,22 @@
-from selenium import webdriver #Import a webdriver.
-import time #To wait between commands.
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By     #Locating Elements.
-from selenium.webdriver.support.ui import WebDriverWait #For waiting.
-from selenium.webdriver.support import expected_conditions as EC    #For waiting conditions to occur.
+from selenium import webdriver
+import time 
+import requests
 
-"""
-200 = working
-404 = not found
-403 = forbidden
-302 = redirect
-303 = redirect after http post performed.
-"""
-
+count = 0
 driver = webdriver.Firefox()
-
-wait = WebDriverWait(driver,15)
 
 driver.get("https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-tag-name")
 
-link = driver.find_element_by_tag_name('a')
-print(type(link))
-print(link)
-time.sleep(5)
+print("The broken weblinks (HTTP status code: 404) inthe the given page are:")
+links = driver.find_elements_by_tag_name('a')
+for link in links:
+    r = requests.head(link.get_attribute('href'))
+    if(r.status_code == 404):
+        print(link.get_attribute('href'))
+        count = count+1
+
+if count == 0:
+    print("No broken Hyperlinks in the given webpage!")
+    
+
 driver.quit()
