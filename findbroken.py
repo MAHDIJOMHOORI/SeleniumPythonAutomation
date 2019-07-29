@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC    #For waiting
 """
 200 = working
 404 = not found
-
+403 = forbidden
 302 = redirect
 303 = redirect after http post performed.
 """
