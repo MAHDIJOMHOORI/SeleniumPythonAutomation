@@ -7,7 +7,7 @@ driver = webdriver.Firefox()
 
 driver.get("https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-tag-name")
 
-print("The broken weblinks (HTTP status code: 404) inthe the given page are:")
+print("The broken hyperlinks (HTTP status code: 404) in the given webpage are:")
 links = driver.find_elements_by_tag_name('a')
 for link in links:
     r = requests.head(link.get_attribute('href'))
