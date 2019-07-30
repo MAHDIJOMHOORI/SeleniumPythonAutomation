@@ -5,20 +5,12 @@ import urllib.request
 import os
 import json
 
-""" """
-st = input("Enter the search Keyword:  ")
+st = str(input("Enter the search Keyword:  "))
 driver = webdriver.Firefox()
 searchtext = st.replace(" ","%20")
 url = "https://www.google.co.in/search?q="+searchtext+"&source=lnms&tbm=isch"
 driver.get(url)
-""" """
 
-"""
-driver.get('https://www.google.com/imghp?hl=en')    #Get google images.
-query = driver.find_element_by_name("q")
-query.send_keys("bike")
-query.send_keys(Keys.RETURN)
-"""
 time.sleep(5)
 
 links = driver.find_elements_by_tag_name('img')
@@ -32,12 +24,15 @@ else:
 top10 = list()
 for link in top10links:
     top10.append(link.get_attribute('src'))
-
+imname = st.replace(" ","_")
 ff = 0
 for i in top10:
     try:
         ff = ff+1
-        fullfilename = os.path.join("Images/",str(ff)+".png")
+        fz = os.path.join("Images/",imname)
+        if not os.path.exists(fz):
+            os.mkdir(fz)
+        fullfilename = os.path.join(fz,str(ff)+".png")
         urllib.request.urlretrieve(i,fullfilename)
     except:
         ff = ff-1
