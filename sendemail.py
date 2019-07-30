@@ -10,7 +10,7 @@ browser = webdriver.Firefox()
 wait = WebDriverWait(browser,15)    #wait for max 15 seconds
 
 browser.get('https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
-
+browser.maximize_window()
 # em = browser.find_element_by_id("identifierId")
 em = wait.until(EC.element_to_be_clickable((By.ID, 'identifierId')))    #As soon as the element is visible in DOM, execute the commands.
 em.send_keys('testme7714@gmail.com')

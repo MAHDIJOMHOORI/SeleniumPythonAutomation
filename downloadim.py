@@ -10,6 +10,7 @@ driver = webdriver.Firefox()
 searchtext = st.replace(" ","%20")
 url = "https://www.google.co.in/search?q="+searchtext+"&source=lnms&tbm=isch"
 driver.get(url)
+driver.maximize_window()
 
 time.sleep(5)
 
