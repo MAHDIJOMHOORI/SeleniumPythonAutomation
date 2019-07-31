@@ -31,4 +31,4 @@ if count == 0:
 else:
     print("The number of broken hyperlinks (HTTP status code: 404) in the given webpage are: ",count)
     
-driver.quit()   # Close the browser window.
+driver.close()   # Close the browser window.

@@ -44,5 +44,5 @@ for i in top10:
 
 time.sleep(5)       # Wait for 5 seconds.
 
-driver.quit()       # Quit browser window.
+driver.close()       # Quit browser window.
 
